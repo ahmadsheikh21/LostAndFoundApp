@@ -1,0 +1,49 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button [text]="'cancel'" (click)="dismiss()" defaultHref="lostitems"></ion-back-button>
+    </ion-buttons>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content color="">
+  <form [formGroup]="addNewLostItemForm">
+    <ion-grid>
+      <ion-row color="justify-content-center">
+        <ion-col class="ion-align-self-center" size-md="6" size-lg="5" size-xs="12">
+          <div class="ion-text-center">
+            <h3 *ngIf="!lostitem">Add New Lost Item</h3>
+            <h3 *ngIf="lostitem">Edit Lost item </h3>
+          </div>
+          <div class="ion-padding">
+            <ion-item>
+              <ion-input formControlName="item_name" type="text" placeholder="Name"></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-input formControlName="location" type="text" placeholder="Location"></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-input formControlName="description" type="text" placeholder="description"></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-input formControlName="date" type="text" placeholder="date"></ion-input>
+            </ion-item>
+          
+            <ion-item>
+              <ion-input formControlName="image_url" type="text" placeholder="image url">
+              </ion-input>
+            </ion-item>
+
+          </div>
+          <div class="ion-padding">
+            <ion-button size="large" [disabled]="addNewLostItemForm.invalid" (click)="save()" color="primary" type="submit"
+            expand="block">SAVE ! &nbsp;<ion-spinner *ngIf="loading"></ion-spinner>
+
+          </ion-button>
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </form>
+</ion-content>

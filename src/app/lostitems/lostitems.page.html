@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title class="ion-text-center">Booky</ion-title>
+    <ion-button slot="end" (click)="openAddModal()" color="success">
+      Add New </ion-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content color="">
+
+  <ion-list>
+    <ion-item *ngFor="let lostitem of lostitems">
+      <ion-thumbnail slot="start">
+        <ion-img [src]=""></ion-img>
+      </ion-thumbnail>
+      <ion-label>{{lostitem.item_name}}</ion-label>
+      <ion-button (click)="openEditPopup(lostitem)" fill="clear">
+        <ion-icon name="create" slot="end"></ion-icon>
+      </ion-button>
+      <ion-button fill="clear" (click)="delete(lostitem)">
+        <ion-icon name="trash" slot="end"></ion-icon>
+      </ion-button>
+    </ion-item>
+  </ion-list>
+
+</ion-content>
